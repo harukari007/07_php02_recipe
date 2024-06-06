@@ -21,7 +21,7 @@ $id = $_POST['id'];
 include('functions.php');
 $pdo = connect_to_db();
 
-$sql = 'UPDATE recipes SET recipe_name=:recipe_name, howto=:howto, category=:category, difficulty=:difficulty, budget=:budget WHERE id=:id';
+$sql = 'UPDATE recipes SET recipe_name=:recipe_name, howto=:howto WHERE id=:id';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':recipe_name', $recipe_name, PDO::PARAM_STR);
