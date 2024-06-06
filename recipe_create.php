@@ -41,18 +41,22 @@ $difficulty = $_POST['difficulty'];
 $budget = $_POST['budget'];
 $howto = $_POST['howto'];
 
-// 各種項目設定
-$dbn = 'mysql:dbname=gs_lab10_01;charset=utf8mb4;port=3306;host=localhost';
-$user = 'root';
-$pwd = '';
 
-// DB接続
-try {
-    $pdo = new PDO($dbn, $user, $pwd);
-} catch (PDOException $e) {
-    echo json_encode(["db error" => "{$e->getMessage()}"]);
-    exit();
-}
+include('functions.php');
+$pdo = connect_to_db();
+
+// // 各種項目設定
+// $dbn = 'mysql:dbname=gs_lab10_01;charset=utf8mb4;port=3306;host=localhost';
+// $user = 'root';
+// $pwd = '';
+
+// // DB接続
+// try {
+//     $pdo = new PDO($dbn, $user, $pwd);
+// } catch (PDOException $e) {
+//     echo json_encode(["db error" => "{$e->getMessage()}"]);
+//     exit();
+// }
 
 // DB接続
 if (

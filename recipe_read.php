@@ -1,16 +1,19 @@
 <?php
 
-// DB接続
-$dbn = 'mysql:dbname=gs_lab10_01;charset=utf8mb4;port=3306;host=localhost';
-$user = 'root';
-$pwd = '';
+include('functions.php');
+$pdo = connect_to_db();
 
-try {
-    $pdo = new PDO($dbn, $user, $pwd);
-} catch (PDOException $e) {
-    echo json_encode(["db error" => "{$e->getMessage()}"]);
-    exit();
-}
+// // DB接続
+// $dbn = 'mysql:dbname=gs_lab10_01;charset=utf8mb4;port=3306;host=localhost';
+// $user = 'root';
+// $pwd = '';
+
+// try {
+//     $pdo = new PDO($dbn, $user, $pwd);
+// } catch (PDOException $e) {
+//     echo json_encode(["db error" => "{$e->getMessage()}"]);
+//     exit();
+// }
 
 
 // SQL作成&実行
@@ -42,6 +45,12 @@ foreach ($result as $record) {
     <td>{$record["difficulty"]}</td>
     <td>{$record["budget"]}</td>
     <td>{$record["howto"]}</td>
+    <td>
+        <a href='todo_edit.php?id={$record["id"]}'>edit</a>
+    </td>
+    <td>
+        <a href='todo_delete.php?id={$record["id"]}'>delete</a>
+    </td>
     </tr>";
 }
 
