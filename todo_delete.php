@@ -6,10 +6,10 @@ include('functions.php');
 $pdo = connect_to_db();
 
 // 削除
-// $sql = 'DELETE FROM todo_table WHERE id=:id';
+$sql = 'DELETE FROM recipes WHERE id=:id';
 
 // 論理削除 
-$sql = 'UPDATE todo_table SET deleted_at=now() WHERE id=:id';
+// $sql = 'UPDATE recipes SET deleted_at=now() WHERE id=:id';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_STR);
@@ -21,7 +21,7 @@ try {
     exit();
 }
 
-header("Location:todo_read.php");
+header("Location:recipe_read.php");
 exit();
 
 

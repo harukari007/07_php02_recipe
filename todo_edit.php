@@ -1,6 +1,7 @@
 <?php
 include('functions.php');
 
+
 // id受け取り
 $id = $_GET['id'];
 
@@ -24,7 +25,7 @@ try {
 
 $record = $stmt->fetch(PDO::FETCH_ASSOC);
 // echo "<pre>";
-// var_dump($result);
+// var_dump($record);
 // echo "</pre>";
 // exit();
 ?>
@@ -47,7 +48,7 @@ $record = $stmt->fetch(PDO::FETCH_ASSOC);
         設備名: <input type="text" name="recipe_name" value=" <?= $record['recipe_name'] ?>">
       </div>
       <div>
-        導入手順: <textarea type="text" name="howto" cols="40" rows="4" maxlength="320" value="<?= $record['howto'] ?>"></textarea>
+        導入手順: <input type="text" name="howto" value="<?= $record['howto'] ?>">
       </div>
       <div>
         <input type="hidden" name="id" value="<?= $record['id'] ?>">
