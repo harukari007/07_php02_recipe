@@ -11,16 +11,16 @@
     echo "<br>";
 
     // カテゴリー事の関数、条件分岐
-if ($_POST['category'] === '1') echo "和食";
-if ($_POST['category'] === '2') echo "中華";
-if ($_POST['category'] === '3') echo "洋食";
+if ($_POST['category'] === '食品') echo "食品";
+if ($_POST['category'] === '自動車') echo "自動車";
+if ($_POST['category'] === '化粧品') echo "化粧品";
 echo "<br>";
 
-if ($_POST['difficulty'] === '1'){
+if ($_POST['difficulty'] === '簡単'){
     echo "簡単";
-} elseif ($_POST['difficulty']==='2'){
+} elseif ($_POST['difficulty']==='普通'){
     echo "普通";
-} elseif($_POST['difficulty']==='3'){
+} elseif($_POST['difficulty']==='難しい'){
     echo "難しい";
 }
 echo "<br>";
