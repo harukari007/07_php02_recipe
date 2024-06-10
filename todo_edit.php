@@ -1,6 +1,7 @@
 <?php
+session_start();
 include('functions.php');
-
+check_session_id();
 
 // id受け取り
 $id = $_GET['id'];
@@ -36,13 +37,14 @@ $record = $stmt->fetch(PDO::FETCH_ASSOC);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/edit.css">
   <title>DB連携型todoリスト（編集画面）</title>
 </head>
 
 <body>
   <form action="todo_update.php" method="POST">
     <fieldset>
-      <legend>設備導入事例リスト（編集画面）</legend>
+      <legend>設備導入事例リスト（編集画面） 【ユーザー名：<?= $_SESSION['username'] ?>】</legend>
       <a href="recipe_read.php">一覧画面</a>
       <div>
         設備名: <input type="text" name="recipe_name" value=" <?= $record['recipe_name'] ?>">

@@ -92,5 +92,5 @@ try {
     // SQL文のエラーが一番多い
 }
 
-header('Location:form.html');
+header('Location:form.php');
 exit();

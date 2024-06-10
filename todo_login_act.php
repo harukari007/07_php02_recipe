@@ -42,7 +42,7 @@ if (!$user) {
     // 管理者かどうかを確認する
     $_SESSION['username'] = $user['username'];
     // ユーザー名
-    header("Location:todo_read.php");
+    header("Location:recipe_read.php");
     exit();
 }
 

@@ -1,23 +1,13 @@
 <?php
-
+session_start();
 include('functions.php');
+check_session_id();
+
 $pdo = connect_to_db();
-
-// // DB接続
-// $dbn = 'mysql:dbname=gs_lab10_01;charset=utf8mb4;port=3306;host=localhost';
-// $user = 'root';
-// $pwd = '';
-
-// try {
-//     $pdo = new PDO($dbn, $user, $pwd);
-// } catch (PDOException $e) {
-//     echo json_encode(["db error" => "{$e->getMessage()}"]);
-//     exit();
-// }
-
 
 // SQL作成&実行
 $sql = 'SELECT * FROM recipes;';
+
 $stmt = $pdo->prepare($sql);
 
 try {
@@ -30,12 +20,6 @@ try {
 // SQL実行の処理
 
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-// データが配列で格納されているか確認する為のコマンド
-// echo "<pre>";
-// var_dump($result);
-// echo"</pre>";
-// exit();
-
 $output = "";
 foreach ($result as $record) {
     $output .= "
@@ -62,13 +46,15 @@ foreach ($result as $record) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/read.css">
     <title>設備導入手順（一覧画面）</title>
 </head>
 
 <body>
     <fieldset>
-        <legend>設備導入手順（一覧画面）</legend>
-        <a href="form.html">入力画面</a>
+        <legend>設備導入手順（一覧画面） 【ユーザー名：<?= $_SESSION['username'] ?>】</legend>
+        <a href="form.php">入力画面</a>
+        <a href="todo_logout.php">ログアウト</a>
         <table>
             <thead>
                 <tr>
@@ -77,6 +63,8 @@ foreach ($result as $record) {
                     <th>難易度</th>
                     <th>予算（万円）</th>
                     <th>導入手順</th>
+                    <th>編集</th>
+                    <th>削除</th>
                 </tr>
             </thead>
             <tbody>

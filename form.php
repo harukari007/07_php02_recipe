@@ -1,3 +1,9 @@
+<?php
+session_start();
+include('functions.php');
+check_session_id();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -11,7 +17,7 @@
 <body>
     <!-- フォーム入力画面を作成する(TOP) -->
     <form action="recipe_create.php" method="POST">
-        <div class="robot">設備導入事例入力フォーム</div>
+        <div class="robot">設備導入事例入力フォーム  【ユーザー名：<?= $_SESSION['username'] ?>】</div>
         <br>
         設備名：<input type="text" name="recipe_name" required>
         カテゴリ：

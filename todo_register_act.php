@@ -1,7 +1,7 @@
 <?php
 include('functions.php');
 session_start();
-check_session_id();
+// check_session_id();
 
 
 if (

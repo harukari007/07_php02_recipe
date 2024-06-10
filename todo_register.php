@@ -1,7 +1,6 @@
 <?php
 session_start();
 include('functions.php');
-check_session_id();
 ?>
 
 <!DOCTYPE html>
@@ -10,23 +9,24 @@ check_session_id();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>todoリストユーザ登録画面</title>
+  <link rel="stylesheet" href="css/register.css">
+  <title>設備導入事例リスト ユーザ登録画面</title>
 </head>
 
 <body>
   <form action="todo_register_act.php" method="POST">
     <fieldset>
-      <legend>todoリストユーザ登録画面</legend>
+      <legend>設備導入事例リスト ユーザ登録画面</legend>
       <div>
-        username: <input type="text" name="username">
+        ユーザネーム: <input type="text" name="username">
       </div>
       <div>
-        password: <input type="text" name="password">
+        パスワード: <input type="text" name="password">
       </div>
       <div>
-        <button>Register</button>
+        <a href ="todo_register_act.php">登録</a>
       </div>
-      <a href="todo_login.php">or login</a>
+      <a href="todo_login.php">ログイン</a>
     </fieldset>
   </form>
 
