@@ -11,3 +11,25 @@ function connect_to_db()
         exit('dbError:' . $e->getMessage());
     }
 }
+
+// ログイン状態のチェック関数
+function check_session_id()
+{
+    if (!isset($_SESSION["session_id"]) || $_SESSION["session_id"] !== session_id()) {
+        header('Location:todo_login.php');
+        exit();
+    } else {
+        session_regenerate_id(true);
+        $_SESSION["session_id"] = session_id();
+    }
+}
+
+// 管理者かどうか確認する
+function check_is_admin()
+{
+    if (!isset($_SESSION["is_admin"]) || $_SESSION["is_admin"] !== 1) {
+        header('Location:todo_read.php');
+        exit();
+    }
+}
+
